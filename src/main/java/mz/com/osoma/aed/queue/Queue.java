@@ -7,7 +7,7 @@ package mz.com.osoma.aed.queue;
 
 /**
  *
- * @author feler
+ * @author feler - 2018
  */
 public interface Queue {
 
