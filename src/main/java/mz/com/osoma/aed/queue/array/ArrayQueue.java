@@ -12,73 +12,74 @@ import mz.com.osoma.aed.queue.QueueEmptyException;
  *
  * @author feler
  */
-public class ArrayQueue implements Queue{
-    
+public class ArrayQueue implements Queue {
+
     private int[] theQueue;
     private int maxSize;
-    
-    int front; 
+
+    int front;
     int rear;
-    int nItems;
-    
-    
-    public ArrayQueue(int size){
+
+    public ArrayQueue(int size) {
         theQueue = new int[size];
         maxSize = size;
         front = 0;
         rear = -1;
-        nItems = 0;
-        
+
     }
 
     @Override
     public int size() {
-        return nItems;
+        if (rear >= front) // contiguous sequence
+        {
+            return rear - front + 1;
+        } else // broken sequence
+        {
+            return (maxSize - front) + (rear + 1);
+        }
     }
 
     @Override
     public boolean isEmpty() {
-        return nItems == 0;
+        return (rear + 1 == front || 
+                (front + maxSize - 1 == rear));
     }
 
-
     public boolean isFull() {
-        return (nItems == maxSize);
+        return (rear + 2 == front || 
+                (front + maxSize - 2 == rear));
     }
 
     @Override
     public int front() throws QueueEmptyException {
-        if(isEmpty()){
+        if (isEmpty()) {
             throw new QueueEmptyException("Queue Emplty");
         }
-        
+
         return theQueue[front];
     }
 
     @Override
     public void insert(int value) {
-        if(rear+1 > maxSize){
+        if (rear == maxSize - 1) {
             rear = -1;
         }
-        theQueue[rear] = value;
-        rear++;
-        nItems++;
+        theQueue[++rear] = value;
     }
 
     @Override
     public int remove() throws QueueEmptyException {
-        if(isEmpty()){
+        if (isEmpty()) {
             throw new QueueEmptyException("Queue Emplty");
         }
-        
+
         int temp = theQueue[front++];
-        
-        if(front == maxSize) front = 0;
-        
-        nItems--;
+
+        if (front == maxSize) {
+            front = 0;
+        }
+
         return temp;
     }
-    
-    
-    
+
 }

@@ -66,18 +66,53 @@ public class LinkedListStack implements Stack{
 
         LinkedListStack s = new LinkedListStack();
         
-        s.push(1);
-        s.push(2);
-        s.push(3);
-        
-        System.out.println(s.peek());
-        System.out.println(s);
-        
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-
        
+        
+        String expression = "{[(A+b)*D]}";
+        
+                
+//        s.push(1);
+//        s.push(2);
+//        s.push(3);
+//        
+     
+    }
+
+    public static void reverso(LinkedListStack s) throws StackFullException, StackEmptyException {
+        String str = "ESTE EXERCICIO E MUITO FACIL";
+        str = str.trim();
+        
+        String[] words = str.split(" ");
+       
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            char[] chars = word.toCharArray();
+          
+            for (int j = 0; j < chars.length; j++) {
+                //System.out.print(chars[j]);
+                s.push(chars[j]);
+            }
+            String temp = "";
+            while(!s.isEmpty()){
+                temp+=(char)s.pop();
+            }
+            result.append(temp);
+            result.append(" ");
+        }
+        
+        System.out.println(result.toString());
+        
+//        s.push(1);
+//        s.push(2);
+//        s.push(3);
+//        
+//        System.out.println(s.peek());
+//        System.out.println(s);
+//        
+//        System.out.println(s.pop());
+//        System.out.println(s.pop());
+//        System.out.println(s.pop());
+//        System.out.println(s.pop());
     }
 }

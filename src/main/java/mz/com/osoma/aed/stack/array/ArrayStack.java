@@ -31,7 +31,7 @@ public class ArrayStack implements Stack {
 
     @Override
     public int size() {
-        return this.stackSize;
+        return this.topOfStack+1;
     }
 
     @Override
