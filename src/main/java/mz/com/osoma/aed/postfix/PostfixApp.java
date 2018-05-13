@@ -116,21 +116,21 @@ class PostfixApp
    {
    public static void main(String[] args) throws IOException
       {
-      String input;
+      String input = "52+83-*4/";
       int output;
 
-      while(true)
-         {
-         System.out.print("Enter postfix: ");
-         System.out.flush();
-         input = getString();         // read a string from kbd
-         if( input.equals("") )       // quit if [Enter]
-            break;
+//      while(true)
+//         {
+//         System.out.print("Enter postfix: ");
+//         System.out.flush();
+//         input = getString();         // read a string from kbd
+//         if( input.equals("") )       // quit if [Enter]
+//            break;
                                       // make a parser
          ParsePost aParser = new ParsePost(input);
          output = aParser.doParse();  // do the evaluation
          System.out.println("Evaluates to " + output);
-         }  // end while
+//         }  // end while
       }  // end main()
 //--------------------------------------------------------------
    public static String getString() throws IOException

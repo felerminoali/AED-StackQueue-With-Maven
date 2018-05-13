@@ -56,16 +56,35 @@ public class LinkQueque implements Queue {
 
         LinkQueque theQueque = new LinkQueque();
 
-        theQueque.insert(20);
-        theQueque.insert(40);
-        theQueque.insert(60);
-        theQueque.insert(80);
+        
+        theQueque.insert(5); 
+        theQueque.insert(3); 
+        theQueque.remove(); 
+        theQueque.insert(2); 
+        theQueque.insert(8); 
+        theQueque.remove(); 
+        theQueque.remove(); 
+        theQueque.insert(9); 
+        theQueque.insert(1); 
+        theQueque.remove(); 
+        theQueque.insert(7); 
+        theQueque.insert(6); 
+        theQueque.remove(); 
+        theQueque.remove(); 
+        theQueque.insert(4); 
+        theQueque.remove(); 
+        theQueque.remove();
+                
+//        theQueque.insert(20);
+//        theQueque.insert(40);
+//        theQueque.insert(60);
+//        theQueque.insert(80);
 
         System.out.println(theQueque.theList);
-        System.out.println(theQueque.front());
-
-        System.out.println(theQueque.remove());
-        System.out.println(theQueque.theList);
+//        System.out.println(theQueque.front());
+//
+//        System.out.println(theQueque.remove());
+//        System.out.println(theQueque.theList);
 
     }
 }
